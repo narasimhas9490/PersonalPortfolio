@@ -13,7 +13,7 @@ export default function Footer() {
           
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com/narasimha-png"
+              href="https://github.com/narasimhas9490"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -21,7 +21,7 @@ export default function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/slnarasimha"
+              href="https://linkedin.com/in/narasimhas9490"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"

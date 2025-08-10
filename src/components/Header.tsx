@@ -32,7 +32,7 @@ export default function Header({ onScheduleClick }: HeaderProps) {
     { name: 'Experience', href: 'experience' },
     { name: 'Projects', href: 'projects' },
     { name: 'Skills', href: 'skills' },
-    {name: 'github', href: 'https://github.com/Narasimha-png/PersonalPortfolio' },
+    {name: 'github', href: 'https://github.com/narasimhas9490/PersonalPortfolio' },
     { name: 'Contact', href: 'contact' }
   ];
 

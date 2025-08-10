@@ -97,7 +97,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
             <Button
               variant="outline"
               className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors"
-              onClick={() => window.open('https://github.com/Narasimha-png/PersonalPortfolio/blob/main/public/SettipalliSriLakshmiNarasimha.pdf', '_blank')}
+              onClick={() => window.open('https://github.com/narasimhas9490/PersonalPortfolio/blob/main/public/SettipalliSriLakshmiNarasimha.pdf', '_blank')}
             >
              
               <FolderOpen className="w-4 h-4"  />
@@ -106,7 +106,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
           </motion.div>
           <div className="flex items-center space-x-4 justify-center">
             <a
-              href="https://github.com/narasimha-png"
+              href="https://github.com/narasimhas9490"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -114,7 +114,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/slnarasimha"
+              href="https://linkedin.com/in/narasimhas9490"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -128,7 +128,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
               <Mail className="w-5 h-5" />
             </a>
              <a
-              href="https://leetcode.com/u/Narasimha-png/"
+              href="https://leetcode.com/u/narasimhas9490/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"

@@ -21,7 +21,7 @@ export default function Projects() {
       description: "Personal progress tracker with LinkedIn auto posting, task management, real-time analytics, and notifications.",
       impact: "Decresed user login time by 50% using Oauth2.0",
       liveUrl: "https://tiger-pro.vercel.app",
-      githubUrl: "https://github.com/Narasimha-png/tiger-backend",
+      githubUrl: "https://github.com/narasimhas9490/tiger-backend",
       featured: true
     },
      {
@@ -32,7 +32,7 @@ export default function Projects() {
 impact: "Enabled 50+ students to take live mock tests with instant results, reducing test load time by 40% through caching.",
 
       liveUrl: "https://photonelearning.vercel.app/",
-      githubUrl: "https://github.com/Narasimha-png/Photon-eLearning-Portal"
+      githubUrl: "https://github.com/narasimhas9490/Photon-eLearning-Portal"
     },
     {
       title: "Quick Rental",
@@ -42,7 +42,7 @@ impact: "Enabled 50+ students to take live mock tests with instant results, redu
 impact: "Reduced manual booking errors by 70% through automated rental management.",
 
       liveUrl: "https://quick-rentals.onrender.com/",
-      githubUrl: "https://github.com/Narasimha-png/quick-rentals-backend"
+      githubUrl: "https://github.com/narasimhas9490/quick-rentals-backend"
     },
    
     {
@@ -52,7 +52,7 @@ impact: "Reduced manual booking errors by 70% through automated rental managemen
      description: "Chrome extension that fetches and displays YouTube solution videos for LeetCode problems directly on the problem page, enhancing coding practice efficiency.",
       impact: "100+ Active Users.Reduced searching time to absolute 0%.",
       liveUrl: "https://microsoftedge.microsoft.com/addons/detail/leetube/pccgfnamgkmhbohiekhmadealliamihg",
-      githubUrl: "https://github.com/Narasimha-png/LeeTube"
+      githubUrl: "https://github.com/narasimhas9490/LeeTube"
     }
    
   ];
