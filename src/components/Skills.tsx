@@ -71,7 +71,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-16 px-6 bg-white">
+    <section id="skills" className="py-16 px-6 bg-gradient-to-b from-muted/20 to-background">
       <div className="max-w-6xl mx-auto">
         <motion.div {...fadeInUp} className="text-center mb-12">
           <Badge className="mb-4 bg-gray-100 text-gray-800 border-gray-200">

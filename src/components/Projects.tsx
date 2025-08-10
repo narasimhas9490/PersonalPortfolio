@@ -24,6 +24,16 @@ export default function Projects() {
       githubUrl: "https://github.com/Narasimha-png/tiger-backend",
       featured: true
     },
+     {
+      title: "Photon elearning portal",
+      technology: "NodeJs + Bootstrap + JavaScript",
+      image: "/photon.png",
+      description: "E-learning platform designed for EAPCET exam preparation, featuring secure login, live tests, instant results, and user data caching for seamless performance.",
+impact: "Enabled 50+ students to take live mock tests with instant results, reducing test load time by 40% through caching.",
+
+      liveUrl: "https://photonelearning.vercel.app/",
+      githubUrl: "https://github.com/Narasimha-png/Photon-eLearning-Portal"
+    },
     {
       title: "Quick Rental",
       technology: "SpringBoot + Bootstrap",
@@ -34,16 +44,7 @@ impact: "Reduced manual booking errors by 70% through automated rental managemen
       liveUrl: "https://quick-rentals.onrender.com/",
       githubUrl: "https://github.com/Narasimha-png/quick-rentals-backend"
     },
-    {
-      title: "Photon elearning portal",
-      technology: "NodeJs + Bootstrap + JavaScript",
-      image: "/photon.png",
-      description: "E-learning platform designed for EAPCET exam preparation, featuring secure login, live tests, instant results, and user data caching for seamless performance.",
-impact: "Enabled 50+ students to take live mock tests with instant results, reducing test load time by 40% through caching.",
-
-      liveUrl: "https://photonelearning-jx9q4n1b4-narasimha-pngs-projects.vercel.app/",
-      githubUrl: "https://github.com/Narasimha-png/Photon-eLearning-Portal"
-    },
+   
     {
       title: "LeeTube Chrome Extention.",
       technology: "JavaScript + Html + CSS",
