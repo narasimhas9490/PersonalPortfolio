@@ -32,6 +32,7 @@ export default function Header({ onScheduleClick }: HeaderProps) {
     { name: 'Experience', href: 'experience' },
     { name: 'Projects', href: 'projects' },
     { name: 'Skills', href: 'skills' },
+    {name: 'github', href: 'https://github.com/Narasimha-png/PersonalPortfolio' },
     { name: 'Contact', href: 'contact' }
   ];
 
@@ -55,7 +56,14 @@ export default function Header({ onScheduleClick }: HeaderProps) {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => {
+                  if(item.name === 'github') {
+                    window.open(item.href, '_blank');
+                    return;
+                  }
+
+                  scrollToSection(item.href) 
+                }}
                 className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
               >
                 {item.name}
