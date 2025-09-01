@@ -30,24 +30,24 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
   ];
 
   const interviewTypes = [
-    { 
-      id: 'video', 
-      name: 'Video Call', 
-      icon: Video, 
+    {
+      id: 'video',
+      name: 'Video Call',
+      icon: Video,
       description: 'Google Meet or Zoom',
       duration: '45-60 minutes'
     },
-    { 
-      id: 'phone', 
-      name: 'Phone Call', 
-      icon: Phone, 
+    {
+      id: 'phone',
+      name: 'Phone Call',
+      icon: Phone,
       description: 'Voice only interview',
       duration: '30-45 minutes'
     },
-    { 
-      id: 'in-person', 
-      name: 'In-Person', 
-      icon: MapPin, 
+    {
+      id: 'in-person',
+      name: 'In-Person',
+      icon: MapPin,
       description: 'Face-to-face meeting',
       duration: '60 minutes'
     }
@@ -56,19 +56,19 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
   const getNext7Days = () => {
     const days = [];
     const today = new Date();
-    
+
     for (let i = 1; i <= 7; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
-      
+
       // Skip weekends {date.getDay() !== 0 && date.getDay() !== 6}
       if (true) {
         days.push({
           date: date.toISOString().split('T')[0],
-          display: date.toLocaleDateString('en-US', { 
-            weekday: 'long', 
-            month: 'short', 
-            day: 'numeric' 
+          display: date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            month: 'short',
+            day: 'numeric'
           })
         });
       }
@@ -77,9 +77,30 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
   };
 
   const handleSubmit = () => {
-    alert('Interview request submitted! I\'ll get back to you within 24 hours.');
-    onBack();
+    const subject = "Interview Schedule";
+    const body = `
+Interview Details:
+
+📅 Date: ${selectedDate}
+⏰ Time: ${selectedTime}
+📌 Type: ${selectedType}
+
+Company Information:
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+🏢 Company: ${formData.company}
+💼 Position: ${formData.position}
+📝 Message: ${formData.message}
+`;
+
+    const mailtoLink = `mailto:narasimhas9490@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+    setTimeout(() => {
+      onBack();
+    }, 5000);
   };
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -102,12 +123,12 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
               <ArrowLeft className="w-4 h-4" />
               Back to Portfolio
             </Button>
-            
+
             <div className="text-center">
               <h1 className="text-lg font-semibold text-black">Schedule Interview</h1>
               <p className="text-sm text-gray-500">Step {step} of 3</p>
             </div>
-            
+
             <div className="w-24"></div>
           </div>
         </div>
@@ -118,35 +139,32 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
             <div className={`flex items-center gap-3 ${step >= 1 ? 'text-black' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 1 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
-              }`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${step >= 1 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
+                }`}>
                 {step > 1 ? <Check className="w-4 h-4" /> : '1'}
               </div>
               <span className="text-sm font-medium">Date & Time</span>
             </div>
-            
+
             <div className={`flex items-center gap-3 ${step >= 2 ? 'text-black' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 2 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
-              }`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${step >= 2 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
+                }`}>
                 {step > 2 ? <Check className="w-4 h-4" /> : '2'}
               </div>
               <span className="text-sm font-medium">Interview Type</span>
             </div>
-            
+
             <div className={`flex items-center gap-3 ${step >= 3 ? 'text-black' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                step >= 3 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
-              }`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${step >= 3 ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
+                }`}>
                 3
               </div>
               <span className="text-sm font-medium">Your Details</span>
             </div>
           </div>
-          
+
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div 
+            <div
               className="bg-black h-2 rounded-full transition-all duration-300"
               style={{ width: `${(step / 3) * 100}%` }}
             />
@@ -180,11 +198,10 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                   <button
                     key={day.date}
                     onClick={() => setSelectedDate(day.date)}
-                    className={`p-4 rounded-lg border-2 transition-all text-left ${
-                      selectedDate === day.date
+                    className={`p-4 rounded-lg border-2 transition-all text-left ${selectedDate === day.date
                         ? 'border-black bg-gray-50'
                         : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                      }`}
                   >
                     <div className="font-medium text-black">{day.display}</div>
                     <div className="text-sm text-gray-500">Available</div>
@@ -205,11 +222,10 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                     <button
                       key={time}
                       onClick={() => setSelectedTime(time)}
-                      className={`p-3 rounded-lg border-2 transition-all text-center ${
-                        selectedTime === time
+                      className={`p-3 rounded-lg border-2 transition-all text-center ${selectedTime === time
                           ? 'border-black bg-gray-50'
                           : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                        }`}
                     >
                       <div className="font-medium text-black">{time}</div>
                       <div className="text-xs text-gray-500">Available</div>
@@ -251,17 +267,15 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
               {interviewTypes.map((type) => (
                 <div
                   key={type.id}
-                  className={`cursor-pointer rounded-lg border-2 p-6 transition-all ${
-                    selectedType === type.id
+                  className={`cursor-pointer rounded-lg border-2 p-6 transition-all ${selectedType === type.id
                       ? 'border-black bg-gray-50'
                       : 'border-gray-200 hover:border-gray-300'
-                  }`}
+                    }`}
                   onClick={() => setSelectedType(type.id)}
                 >
                   <div className="text-center space-y-4">
-                    <div className={`w-12 h-12 mx-auto rounded-lg flex items-center justify-center ${
-                      selectedType === type.id ? 'bg-black text-white' : 'bg-gray-100 text-gray-600'
-                    }`}>
+                    <div className={`w-12 h-12 mx-auto rounded-lg flex items-center justify-center ${selectedType === type.id ? 'bg-black text-white' : 'bg-gray-100 text-gray-600'
+                      }`}>
                       <type.icon className="w-6 h-6" />
                     </div>
                     <div>
@@ -277,8 +291,8 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
             </div>
 
             <div className="flex justify-between pt-6">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setStep(1)}
                 className="border-gray-300 text-gray-700 hover:bg-gray-50"
               >
@@ -315,7 +329,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
               {/* Form */}
               <div className="space-y-6">
                 <h3 className="text-lg font-semibold text-black">Contact Details</h3>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-black">
@@ -330,7 +344,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-black">
                       Email Address *
@@ -346,7 +360,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                     />
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-black">
                     Company/Organization
@@ -359,7 +373,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                     className="border-gray-300 focus:border-black"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-black">
                     Position/Role
@@ -372,7 +386,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                     className="border-gray-300 focus:border-black"
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-black">
                     Message (Optional)
@@ -391,7 +405,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
               {/* Summary */}
               <div className="space-y-6">
                 <h3 className="text-lg font-semibold text-black">Interview Summary</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
                     <Calendar className="w-5 h-5 text-black" />
@@ -402,7 +416,7 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
                       <div className="text-sm text-gray-600">{selectedTime} IST</div>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
                     {selectedType === 'video' && <Video className="w-5 h-5 text-black" />}
                     {selectedType === 'phone' && <Phone className="w-5 h-5 text-black" />}
@@ -431,8 +445,8 @@ export default function ScheduleInterview({ onBack }: ScheduleInterviewProps) {
             </div>
 
             <div className="flex justify-between pt-6">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setStep(2)}
                 className="border-gray-300 text-gray-700 hover:bg-gray-50"
               >
