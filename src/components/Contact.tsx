@@ -16,8 +16,11 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! I\'ll get back to you soon.');
+      const mailtoLink = `mailto:narasimhas9490@gmail.com?subject=${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}`;
+  window.location.href = mailtoLink;
+  setTimeout(() => {
     setFormData({ name: '', email: '', message: '' });
+  },5000);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
